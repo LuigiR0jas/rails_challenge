@@ -1,0 +1,16 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.home__header {
+	font-size: 100px;
+}
+
+.home__header--logged-in {
+	font-size: 100px;
+}
+
+.home__p {
+	font-size: 20px;
+	line-height: 28px;
+}

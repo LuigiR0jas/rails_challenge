@@ -1,0 +1,42 @@
+<% provide(:name, current_user&.name) %> <% if !signed_in? %>
+
+<h1 class="home__header">Log your life</h1>
+<br />
+<p class="home__p">
+	A simple Rails app to track and strengthen positive habits, and follow through activities that you find meaningful.
+</p>
+
+<br class="separator" />
+<a href="/users/sign_in" class="btn">LOG IN</a>
+<a href="/users/sign_up" class="btn">SIGN UP</a>
+
+<% else %>
+<h1 class="home__header--logged-in">Hello, <%= yield(:name)%></h1>
+<br />
+<p class="home__p">
+	Add a new type of activity or log what you did today!
+</p>
+<br class="separator" />
+<a href="/activities/new" class="btn">+ ACTIVITY</a>
+<a href="/logs/new" class="btn">+ LOG</a>
+
+<% @logs.each do |log| %>
+
+	<p>
+		<strong>Date:</strong>
+		<%= log.date %>
+	</p>
+
+	<p>
+		<strong>Content:</strong>
+		<%= log.content %>
+	</p>
+
+	<p>
+		<strong>Activity:</strong>
+		<%= log.activity.name %>
+	</p>
+
+<% end %>
+
+<% end %>

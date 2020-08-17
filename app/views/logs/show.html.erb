@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Date:</strong>
+	<%= @log.date %>
+</p>
+
+<p>
+	<strong>Content:</strong>
+	<%= @log.content %>
+</p>
+
+<p>
+	<strong>Activity:</strong>
+	<%= @log.activity_id %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> | <%= link_to 'Back', logs_path %>
