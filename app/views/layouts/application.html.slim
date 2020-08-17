@@ -1,0 +1,48 @@
+doctype html
+html
+	head 
+		title Rails Challenge
+		= csrf_meta_tags
+		= csp_meta_tag
+		= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+		= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+		link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"
+	body
+		div
+			- if signed_in?
+				=link_to "Logout", destroy_user_session_path, method: :delete, class: "home__btn--sm float-right"
+
+		div.app__container-header.justify-content-center
+			a.app__header href="/" Telos Logs
+		br
+		br
+		.container.justify-content-center
+			= yield
+
+		
+
+
+/ <!DOCTYPE html>
+/ <html>
+/ 	<head>
+/ 		<title>RailsChallenge</title>
+/ 		<%= csrf_meta_tags %> <%= csp_meta_tag %> <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track':
+/ 		'reload' %> <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+/ 		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+/ 	</head>
+
+/ 	<body>
+/ 		<div>
+/ 			<% if signed_in? %> <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "home__btn--sm float-right" %>
+/ 			<% end %>
+/ 		</div>
+/ 		<div class="app__container-header justify-content-center">
+/ 			<a href="/" class="app__header">Telos Logs</a>
+/ 		</div>
+/ 		<br />
+/ 		<br />
+/ 		<div class="container justify-content-center">
+/ 			<%= yield %>
+/ 		</div>
+/ 	</body>
+/ </html>

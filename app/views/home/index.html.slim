@@ -1,0 +1,34 @@
+= provide(:name, current_user&.name)
+
+- if !signed_in?
+	h1.home__header Log your life
+	br
+	p.home__p A simple Rails app to track and strengthen positive habits, and follow through activities that you find meaningful.
+	br.home__separator
+
+	a.home__btn href="/users/sign_in" LOG IN
+	a.home__btn href="/users/sign_up" SIGN UP
+- else
+	
+	h1.home__header--logged-in 
+		| Hello, 
+		= yield :name
+	br
+	p.home__p Add a new type of activity or log what you did today!
+	br.home__separator
+	a.home__btn href="/activities/new" + ACTIVITY
+	a.home__btn href="/logs/new" + LOG
+
+	br
+	- @logs.each do |log|
+		p
+			strong Date: 
+			= log.date
+		
+		p
+			strong Content: 
+			= log.content
+		
+		p
+			strong Activity: 
+			= log.activity.name
