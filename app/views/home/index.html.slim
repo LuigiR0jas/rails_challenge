@@ -14,12 +14,15 @@
 		| Hello, 
 		= yield :name
 	br
+
 	p.home__p Add a new type of activity or log what you did today!
-	br.home__separator
+	br
+
 	a.home__btn href="/activities/new" + ACTIVITY
 	a.home__btn href="/logs/new" + LOG
+	br.home__separator
+	br.home__separator
 
-	br
 	- @logs.each do |log|
 		p
 			strong Date: 
@@ -32,3 +35,4 @@
 		p
 			strong Activity: 
 			= log.activity.name
+		br
